@@ -29,16 +29,58 @@
    
    
 }
-#main-menu .container  ul 
+#main-menu ul.container li
 { 
     display: inline-block;
     font-size: 16;
-    margin: 10px; 
+    margin: auto; 
+    padding-left: 100px;
+    
+
     
 
 }
 #main-menu .container li a{
-    color: white; 
+    color: black; 
 }
+#content .main-content a.hothot{
+    margin-left: 10px;
+}
+.movie .movie_infor span.movie{
+    display: inline-block;
+}
+.movie .movie_infor span.movieName{
+    
+    display: inline; 
+
+}
+.movie{
+    display: inline-block;
+    margin-left: 30px;
+}
+.list-films{ 
+    max-width: 1200px;
+    margin: auto;
+
+
+}
+span.movieName{ 
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+.catalog {
+    max-width: 1500px;
+    margin: auto;
+}
+span.movie-year{ 
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+}
+
+
+
+
  
 
