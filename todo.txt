@@ -1,0 +1,8 @@
+* Front-end
+-Trang chủ
+- Tìm kiếm film
+-Xem film
+* Back-end
+- Thêm sửa xóa film
+- Thêm sửa xóa diễn viên
+
