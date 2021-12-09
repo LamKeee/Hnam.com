@@ -6,3 +6,5 @@
 - Thêm sửa xóa film
 - Thêm sửa xóa diễn viên
 
+P2
+- Laravel
