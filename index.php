@@ -1,6 +1,6 @@
 <html> 
   <meta httlp-equiv="Content-Type"  content="text/html; charset=utf-8" /> 
-  <link rel="stylesheet" href="/Hnam.com-main/includes/css/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="/includes/css/style.css" type="text/css" media="all" />
   <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="js/jquery-func.js"></script>
 
@@ -11,7 +11,7 @@
     $servername ="localhost"; 
     $username="root"; 
     $password=""; 
-    $dbname ="movie"; 
+    $dbname ="film_test"; 
 
 
     $conn = new mysqli($servername,$username,$password,$dbname); 
