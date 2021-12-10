@@ -133,6 +133,13 @@ ul.container{
     
 
 }
+#contact {
+text-align: center;
+    font-size: large;
+    background-color: lightcoral;
+    margin: auto;
+    max-width: 800px;
+}
 
     
 
