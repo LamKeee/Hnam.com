@@ -32,6 +32,9 @@ $result_02 =$conn->query($sql_02);
 $sql_03="SELECT tenFilm,namSanXuat,avt FROM film WHERE theLoai='Hành động' LIMIT 5 ";
 $result_03=$conn->query($sql_03); 
 
+$sql_04="SELECT tenFilm,namSanXuat,avt FROM film WHERE theLoai='Tâm lý' LIMIT 5";
+$result_04=$conn->query($sql_04); 
+
 ?>
 
 
@@ -73,7 +76,7 @@ $result_03=$conn->query($sql_03);
       <div class="film-hot">
           <div class="catalog">
             <h2 class="title-box">
-              <a class="Type_Of_Film">Phim hot</a>
+              <a class="Type_Of_Film">Phim hot hòn họt !!!</a>
             </h2>
           </div>
           <div class="list-films ">
@@ -156,6 +159,29 @@ $result_03=$conn->query($sql_03);
           <?php
             if ($result_03->num_rows > 0) {
               while ($row = $result_03->fetch_assoc()) {
+            ?>
+                <div class="movie">
+                  <div class="movie_info">
+                    <a href="#"><img src="<?= $row["avt"] ?>" alt="" /></a>
+                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                    <span class="movie-year"><?=$row["namSanXuat"]?></span>
+                  </div>
+                </div>
+            <?php
+              }
+            }
+            ?>
+           
+          </div>
+          <div class="film-le"> 
+        <div class="catalog">
+          <h2 class ="title-box">
+            <a class="Type_Of_Film">Phim tâm lý</a> </h2> 
+          </div>
+          <div class="list-films">
+          <?php
+            if ($result_04->num_rows > 0) {
+              while ($row = $result_04->fetch_assoc()) {
             ?>
                 <div class="movie">
                   <div class="movie_info">

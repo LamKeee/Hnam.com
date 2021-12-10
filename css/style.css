@@ -120,6 +120,23 @@ span.movie-year{
     border-left: solid powderblue;
     background-color:rgb(24, 187, 216);
 }
+ul.container{
+    border-left: solid #efc72b;
+    border-right: solid rgb(68, 10, 68);
+    border-top: solid rgb(60, 141, 80) ;
+    border-bottom: solid rgb(78, 46, 216);
+    background: lightblue; 
+    max-width: 1500px;
+    padding-top: 7px; 
+    padding-bottom: 10px;
+    margin: auto;
+    
+
+}
+
+    
+
+
 
 
 
