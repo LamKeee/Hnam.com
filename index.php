@@ -23,6 +23,15 @@ if ($conn->connect_error) {
 $sql = "SELECT tenFilm,quocGia,namSanXuat,luotXem,avt FROM film ORDER BY luotXem DESC LIMIT 5   ";
 $result = $conn->query($sql);
 
+$sql_01="SELECT tenFilm,quocGia,namSanXuat,luotXem,avt FROM film WHERE luotXem between 10 AND 100 LIMIT 5  ";
+$result_01 =$conn->query($sql_01); 
+
+$sql_02="SELECT tenFilm,quocGia,namSanXuat,luotXem,avt FROM film WHERE quocGia='America' LIMIT 5  ";
+$result_02 =$conn->query($sql_02);
+
+$sql_03="SELECT tenFilm,namSanXuat,avt FROM film WHERE theLoai='Hành động' LIMIT 5 ";
+$result_03=$conn->query($sql_03); 
+
 ?>
 
 
@@ -51,7 +60,7 @@ $result = $conn->query($sql);
       <li><a href="#">Phim chiếu rạp</a></li>
       <li><a href="#">Phim bộ</a></li>
       <li><a href="#">Phim bộ</a></li>
-      <li><a href="#">Phim Vietsub</a></li>
+      <li><a href="#">Phim Mỹ</a></li>
       <li><a href="#">Phim Englishsub</a></li>
       <li><a href="#">Liên hệ quảng cáo</a></li>
     </ul>
@@ -60,10 +69,11 @@ $result = $conn->query($sql);
   <div id="content">
     <div class="main-content">
       <div class="container">
-        <div class="film-hot">
+        
+      <div class="film-hot">
           <div class="catalog">
             <h2 class="title-box">
-              <a class="hothot">Phim hot</a>
+              <a class="Type_Of_Film">Phim hot</a>
             </h2>
           </div>
           <div class="list-films ">
@@ -88,10 +98,78 @@ $result = $conn->query($sql);
         </div>
 
       </div>
+
+      <div class="film-le"> 
+        <div class="catalog">
+          <h2 class ="title-box">
+            <a class="Type_Of_Film">Phim lẻ</a> </h2> 
+          </div>
+          <div class="list-films">
+          <?php
+            if ($result_01->num_rows > 0) {
+              while ($row = $result_01->fetch_assoc()) {
+            ?>
+                <div class="movie">
+                  <div class="movie_info">
+                    <a href="#"><img src="<?= $row["avt"] ?>" alt="" /></a>
+                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                    <span class="movie-year"><?=$row["namSanXuat"]?></span>
+                  </div>
+                </div>
+            <?php
+              }
+            }
+            ?>
+           
+          </div>
+
     </div>
+    <div class="film-le"> 
+        <div class="catalog">
+          <h2 class ="title-box">
+            <a class="Type_Of_Film">Phim Mỹ </a> </h2> 
+          </div>
+          <div class="list-films">
+          <?php
+            if ($result_02->num_rows > 0) {
+              while ($row = $result_02->fetch_assoc()) {
+            ?>
+                <div class="movie">
+                  <div class="movie_info">
+                    <a href="#"><img src="<?= $row["avt"] ?>" alt="" /></a>
+                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                    <span class="movie-year"><?=$row["namSanXuat"]?></span>
+                  </div>
+                </div>
+            <?php
+              }
+            }
+            ?>
   </div>
 
-
+  <div class="film-le"> 
+        <div class="catalog">
+          <h2 class ="title-box">
+            <a class="Type_Of_Film">Phim hành động</a> </h2> 
+          </div>
+          <div class="list-films">
+          <?php
+            if ($result_03->num_rows > 0) {
+              while ($row = $result_03->fetch_assoc()) {
+            ?>
+                <div class="movie">
+                  <div class="movie_info">
+                    <a href="#"><img src="<?= $row["avt"] ?>" alt="" /></a>
+                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                    <span class="movie-year"><?=$row["namSanXuat"]?></span>
+                  </div>
+                </div>
+            <?php
+              }
+            }
+            ?>
+           
+          </div>
 
 
 

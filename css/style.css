@@ -59,7 +59,7 @@
     margin-left: 30px;
 }
 .list-films{ 
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
 
 
@@ -79,6 +79,47 @@ span.movie-year{
     margin-top: 2px;
 }
 
+
+.film-le .catalog h2.title-box {
+        padding-left: 120px;
+        max-width: 250px;
+    }
+
+.film-hot .catalog h2 a { 
+    color: rgb(110, 18, 18); 
+    font-size: 40px;
+    
+}
+.film-hot .catalog h2{
+    padding-left: 100px;
+}
+.film-hot  .list-films{
+    border-left: solid #efc72b;
+    border-right: solid rgb(68, 10, 68);
+    border-top: solid rgb(60, 141, 80) ;
+    border-bottom: solid rgb(78, 46, 216);
+    background: darkkhaki;
+    
+}
+.film-le .list-films{
+
+    border-left: solid #5f2bef;
+    border-right: solid rgb(203, 206, 22);
+    border-top: solid rgb(60, 141, 80) ;
+    border-bottom: solid rgb(216, 34, 34);
+    background: darkcyan;
+}
+.film-hot {
+    max-width: 1250px;
+    margin: auto;
+    border-top: solid blue;
+    border-bottom: solid red;
+    padding-bottom: 5px;
+    padding-top: 1px;
+    border-right: solid greenyellow;
+    border-left: solid powderblue;
+    background-color:rgb(24, 187, 216);
+}
 
 
 
