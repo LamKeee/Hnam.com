@@ -1,9 +1,0 @@
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (1, 1, 1);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (2, 1, 2);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (3, 1, 3);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (4, 3, 2);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (5, 4, 3);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (6, 3, 1);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (7, 5, 1);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (8, 5, 2);
-INSERT INTO `filmdienvien` (`id`, `idFilm`, `idDienVien`) VALUES (9, 5, 2);

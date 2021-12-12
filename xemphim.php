@@ -76,7 +76,7 @@ $result_05=$conn->query($sql_05);
                     </div>
                     <div id="film-info-detail">
                         Tên phim: <span class="movie_information"><?= $row["tenFilm"] ?></span>
-                        Năm sản xuất: <span class="movie_information"><?=$row["namSanXuat"]?></span>
+                        Năm phát hành: <span class="movie_information"><?=$row["namSanXuat"]?></span>
                         Đạo diễn: <span class="movie_information"><?= $row["daoDien"]?></span>
                         Lượt xem: <span class="movie_information"><?=$row["luotXem"]?></span>
                         Mô tả:<span class="movie_information"><?=$row["moTa"]?></span>
