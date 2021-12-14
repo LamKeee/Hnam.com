@@ -93,21 +93,32 @@ $result_05=$conn->query($sql_05);
                 </div>
 
 
-
             </div>
 
-            <?php 
-// End of main content ( include film and film info)
-?>
+
 
 
 
         </div>
+        <div id="playing-film">
+            <div class="container">
+                <object id="xem" width="1400" height="768">
+                    <param name="movie" value="<?= $row["link"] ?>">
+                    </param>
 
-      <div> 
+                </object>
 
 
-    </div>
+                <div id="comment">
+
+
+                </div>
+            </div>
+
+
+            <?php   
+                    mysqli_close($conn);
+               ?>
 
 
 
