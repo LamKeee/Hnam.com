@@ -8,3 +8,12 @@
 
 P2
 - Laravel
+
+
+14/12/2021
+-Add search-bar function features.  
+-CSS xemphim.php và index.php ( add banner/sidebar)(css cho đẹp hơn)
+ 
+
+
+

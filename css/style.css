@@ -219,16 +219,12 @@ text-align: center;
     border-top: solid rgb(60, 141, 80) ;
     border-bottom: solid rgb(78, 46, 216);
     padding-top: 10px;
+    text-align: center;
 }
-    
+  
 
 
-#playing-film .container #xem{
-    padding-left: 3%; 
-    margin: auto;
-    padding-top: 15px; 
 
-}
 
 
 
