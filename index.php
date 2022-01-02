@@ -17,7 +17,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 if ($conn->connect_error) {
-  die("Connection failed:" . $con->connect_error);
+  die("Connection failed:" . $conn->connect_error);
 }
 
 $sql = "SELECT tenFilm,quocGia,namSanXuat,luotXem,avt,id FROM film ORDER BY luotXem DESC LIMIT 5   ";
@@ -42,180 +42,213 @@ $conn->close();
 
 <body>
 
-  <div id="header">
-    <div class="container">
+    <div id="header">
+        <div class="container">
 
-      <a class="logo" href="/index.php" title="Hnam.com">
-        <img src="/img/logo/logophim.png" style="width:200px;padding-top:2px;margin: 2px">
+            <a class="logo" href="/index.php" title="Hnam.com">
+                <img src="/img/logo/logophim.png" style="width:200px;padding-top:2px;margin: 2px">
+        </div>
+        <div class="search-container relative">
+            <form method="post" action="search.php">
+                <input type="text" name="search" placeholder="Nhập tên film hoặc tên diễn viên">
+                <button type="submit" name="searching">Search</button>
+            </form>
+        </div>
     </div>
-    <div class="search-container relative">
-      <form action="javascript:MakeSearch();" class="form-search">
-        <input id="keyword" type="text" placeholder="Nhập tên phim, diễn viên ...">
-      </form>
+
+
+
+
+
+    <div id="main-menu">
+        <ul class="container">
+            <li><a class="active" href="/index.php">Trang chủ</a></li>
+            <li><a href="/phimhot.php">Phim hot </a></li>
+            <li><a href="#">Phim chiếu rạp</a></li>
+            <li><a href="#">Phim bộ</a></li>
+            <li><a href="#">Phim bộ</a></li>
+            <li><a href="#">Phim Mỹ</a></li>
+            <li><a href="#">Phim Englishsub</a></li>
+            <li><a href="#">Liên hệ quảng cáo</a></li>
+        </ul>
     </div>
-  </div>
+   
+    <div class="films-container">
+        <?php 
+            $sql_search = "SELECT tenFilm,namSanXuat,avt from film WHERE  "
+            $result_search = mysqli_query($connection,$sql_search);
+            $queryResults=mysqli_num_rows($result_search);
+            
+            if($queryResults>0 ){ 
+                while($row=mysqli_fetch_assoc($result_search)){ 
+                    ?>
+        <div class="movie">
+            <div class="movie_info">
+                <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
+                <span class="movieName"><?= $row["tenFilm"] ?></span>
+                <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+            </div>
+        </div>
+        <?php
+              }
+            }
+            ?>
 
 
 
-  <div id="main-menu">
-    <ul class="container">
-      <li><a class="active" href="/index.php">Trang chủ</a></li>
-      <li><a href="/phimhot.php">Phim hot </a></li>
-      <li><a href="#">Phim chiếu rạp</a></li>
-      <li><a href="#">Phim bộ</a></li>
-      <li><a href="#">Phim bộ</a></li>
-      <li><a href="#">Phim Mỹ</a></li>
-      <li><a href="#">Phim Englishsub</a></li>
-      <li><a href="#">Liên hệ quảng cáo</a></li>
-    </ul>
-  </div>
 
-  <div id="content">
-    <div class="main-content">
-      <div class="container">
-        <div class="film-hot">
-          <div class="catalog">
-            <h2 class="title-box">
-              <a class="Type_Of_Film">Phim hot hòn họt !!!</a>
-            </h2>
-          </div>
-          <div class="list-films ">
-            <?php
+
+        <div id="content">
+            <div class="main-content">
+                <div class="container">
+                    <div class="film-hot">
+                        <div class="catalog">
+                            <h2 class="title-box">
+                                <a class="Type_Of_Film">Phim hot hòn họt !!!</a>
+                            </h2>
+                        </div>
+                        <div class="list-films ">
+                            <?php
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
             ?>
-                <div class="movie">
-                  <div class="movie_info">
-                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                    <span class="movieName"><?= $row["tenFilm"] ?></span>
-                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-                  </div>
-                </div>
-            <?php
+                            <div class="movie">
+                                <div class="movie_info">
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                            alt="" /></a>
+                                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+                                </div>
+                            </div>
+                            <?php
               }
             }
             ?>
-          </div>
-        </div>
+                        </div>
+                    </div>
 
-        <div class="film-le">
-          <div class="catalog">
-            <h2 class="title-box">
-              <a class="Type_Of_Film">Phim lẻ</a>
-            </h2>
-          </div>
-          <div class="list-films">
-            <?php
+                    <div class="film-le">
+                        <div class="catalog">
+                            <h2 class="title-box">
+                                <a class="Type_Of_Film">Phim lẻ</a>
+                            </h2>
+                        </div>
+                        <div class="list-films">
+                            <?php
             if ($result_01->num_rows > 0) {
               while ($row = $result_01->fetch_assoc()) {
             ?>
-                <div class="movie">
-                  <div class="movie_info">
-                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                    <span class="movieName"><?= $row["tenFilm"] ?></span>
-                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-                  </div>
-                </div>
-            <?php
+                            <div class="movie">
+                                <div class="movie_info">
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                            alt="" /></a>
+                                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+                                </div>
+                            </div>
+                            <?php
               }
             }
             ?>
-          </div>
-        </div>
+                        </div>
+                    </div>
 
-        <div class="film-le">
-          <div class="catalog">
-            <h2 class="title-box">
-              <a class="Type_Of_Film">Phim Mỹ </a>
-            </h2>
-          </div>
-          <div class="list-films">
-            <?php
+                    <div class="film-le">
+                        <div class="catalog">
+                            <h2 class="title-box">
+                                <a class="Type_Of_Film">Phim Mỹ </a>
+                            </h2>
+                        </div>
+                        <div class="list-films">
+                            <?php
             if ($result_02->num_rows > 0) {
               while ($row = $result_02->fetch_assoc()) {
             ?>
-                <div class="movie">
-                  <div class="movie_info">
-                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                    <span class="movieName"><?= $row["tenFilm"] ?></span>
-                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-                  </div>
-                </div>
-            <?php
+                            <div class="movie">
+                                <div class="movie_info">
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                            alt="" /></a>
+                                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+                                </div>
+                            </div>
+                            <?php
               }
             }
             ?>
-          </div>
-        </div>
+                        </div>
+                    </div>
 
-        <div class="film-le">
-          <div class="catalog">
-            <h2 class="title-box">
-              <a class="Type_Of_Film">Phim hành động</a>
-            </h2>
-          </div>
-          <div class="list-films">
-            <?php
+                    <div class="film-le">
+                        <div class="catalog">
+                            <h2 class="title-box">
+                                <a class="Type_Of_Film">Phim hành động</a>
+                            </h2>
+                        </div>
+                        <div class="list-films">
+                            <?php
             if ($result_03->num_rows > 0) {
               while ($row = $result_03->fetch_assoc()) {
             ?>
-                <div class="movie">
-                  <div class="movie_info">
-                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                    <span class="movieName"><?= $row["tenFilm"] ?></span>
-                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-                  </div>
-                </div>
-            <?php
+                            <div class="movie">
+                                <div class="movie_info">
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                            alt="" /></a>
+                                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+                                </div>
+                            </div>
+                            <?php
               }
             }
             ?>
-          </div>
-        </div>
+                        </div>
+                    </div>
 
 
-        <div class="film-le">
-          <div class="catalog">
-            <h2 class="title-box">
-              <a class="Type_Of_Film">Phim tâm lý</a>
-            </h2>
-          </div>
-          <div class="list-films">
-            <?php
+                    <div class="film-le">
+                        <div class="catalog">
+                            <h2 class="title-box">
+                                <a class="Type_Of_Film">Phim tâm lý</a>
+                            </h2>
+                        </div>
+                        <div class="list-films">
+                            <?php
             if ($result_04->num_rows > 0) {
               while ($row = $result_04->fetch_assoc()) {
             ?>
-                <div class="movie">
-                  <div class="movie_info">
-                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                    <span class="movieName"><?= $row["tenFilm"] ?></span>
-                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-                  </div>
-                </div>
-            <?php
+                            <div class="movie">
+                                <div class="movie_info">
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                            alt="" /></a>
+                                    <span class="movieName"><?= $row["tenFilm"] ?></span>
+                                    <span class="movie-year"><?= $row["namSanXuat"] ?></span>
+                                </div>
+                            </div>
+                            <?php
               }
             }
             ?>
 
-          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-    
-  </div>
 
 
 
 
 </body>
 <footer>
-  <div id="contact">
-    <p>Author: HNAM Nguyen</p>
-    <p>SDT lien he : 012345678910JQK</p>
-    <p><a href="mailto:hege@example.com">namhoangIT2021@gmail.com</a></p>
+    <div id="contact">
+        <p>Author: HNAM Nguyen</p>
+        <p>SDT lien he : 012345678910JQK</p>
+        <p><a href="mailto:hege@example.com">namhoangIT2021@gmail.com</a></p>
 
 
-  </div>
+    </div>
 </footer>
 
 </html>
