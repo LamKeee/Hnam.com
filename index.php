@@ -74,26 +74,7 @@ $conn->close();
     </div>
    
     <div class="films-container">
-        <?php 
-            $sql_search = "SELECT tenFilm,namSanXuat,avt from film WHERE  "
-            $result_search = mysqli_query($connection,$sql_search);
-            $queryResults=mysqli_num_rows($result_search);
-            
-            if($queryResults>0 ){ 
-                while($row=mysqli_fetch_assoc($result_search)){ 
-                    ?>
-        <div class="movie">
-            <div class="movie_info">
-                <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>" alt="" /></a>
-                <span class="movieName"><?= $row["tenFilm"] ?></span>
-                <span class="movie-year"><?= $row["namSanXuat"] ?></span>
-            </div>
-        </div>
-        <?php
-              }
-            }
-            ?>
-
+       
 
 
 
