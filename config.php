@@ -15,7 +15,7 @@ define('DB_NAME', 'film_test');
 
  
 /* Attempt to connect to MySQL database */
-$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
  
 // Check connection
 if($mysqli === false){
