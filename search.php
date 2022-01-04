@@ -19,7 +19,7 @@ if($connection->connect_error){
     die("Connection failed:".$connection->connect_error); 
 
 }
-
+$search = $_POST['search'];
 $sql_search= "SELECT tenFilm,namSanXuat,avt from film where tenFilm like '%$search%'"; 
 
 $result_search= $connection->query($sql_search); 

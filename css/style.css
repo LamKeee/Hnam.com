@@ -15,7 +15,7 @@
     margin: 0 100px 0 0; 
 
 }
-#keyword{ 
+#searching{ 
     width: auto;
 }
 
@@ -222,7 +222,10 @@ text-align: center;
     text-align: center;
 }
   
-
+#search-container  .button{ 
+    width: auto;
+    height: auto;
+}
 
 
 
