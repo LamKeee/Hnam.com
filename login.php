@@ -1,26 +1,147 @@
-<html>
+<?php
+// Initialize the session
+	session_start();
+	
+
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    exit;
+}
+ 
+// Include config file
+require_once "config.php";
+ 
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = $login_err = "";
+
+//Processing form data when form is submitted
+//Check if username and password are empty
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if(empty($trim($_POST["username"]))){ 
+		$username_err = "Please enter a username";
+	}
+	else { $usename = trim($_POST["username"]);
+
+}
+
+if(empty($trim($_POST["password"]))){
+	$password_err = "Please enter a valid password"; 
+}
+else{ 
+	$password =trim($_POST["password"];)
+}
+
+// Validate the input from users
+
+if(empty($username_err) && empty($password_err)){
+	$sql_login="SELECT id,username,password FROM users WHERE username=?"; 
+
+	if($stmt=$mysqli->prepare($sql_register)){ 
+		//Bind variables to the prepared statement as parameters
+
+$stmt->bind_param("s",$param_username); 
+
+//Set parameters
+		$param_username=$username; 
+
+		//Attempt to execute the prepared statement
+
+		if($stmt->execute()){ 
+			// store result login
+			$stmt->store_result(); 
+
+			//Check if username exits, if yes then verify the password
+
+			if($stmt->num_rows==1){ 
+				//Bind result variables
+			$stmt->bind_result($id,$username,$hashed_password);
+			if($stmt->fetch()){ 
+				if($password_verify($password,$hashed_password)){ 
+					//Password is correct, start the new session
+
+					session_start(); 
+
+			//Store data in session variables
+
+			$_SESSION["loggedin"]="true"; 
+			$_SESSION["id"]=$id; 
+			$_SESSION["username"]=$username; 
+
+			// Redirect user to index page\
+
+			header("location:index.php"); 
+		
+			
+
+				} else { 
+					// if password not matched, throw err_
+					$login_err="Invalid password, please try again"; 
+				}
+				
+
+			} 
+			else echo "Something went wrong, please try again later";
+
+			}
+			$stmt->close();
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+	}
+
+	$mysqli->close();
+
+
+
+
+
+
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<title>Trang đăng nhập</title>
-	<meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <style>
+    body {
+        font: 14px sans-serif;
+    }
+
+    .wrapper {
+        width: 360px;
+        padding: 20px;
+    }
+    </style>
 </head>
-<body>
-	<form method="POST" action="login.php">
-	<fieldset>
-	    <legend>Đăng nhập</legend>
-	    	<table>
-	    		<tr>
-	    			<td>Username</td>
-	    			<td><input type="text" name="username" size="30"></td>
-	    		</tr>
-	    		<tr>
-	    			<td>Password</td>
-	    			<td><input type="password" name="password" size="30"></td>
-	    		</tr>
-	    		<tr>
-	    			<td colspan="2" align="center"> <input type="submit" name="btn_submit" value="Đăng nhập"></td>
-	    		</tr>
-	    	</table>
-  </fieldset>
-  </form>
-</body>
-</html>
+
+<body> 
+	<div class="wrapper">
+		<h2>Login</h2> 
+		<p>Please fill in your credentials to login.</p> 
+	<?php 
+	if(!empty($login_err)){ 
+		echo '<div class="alert alert-danger">' . $login_err .'</div>';
+	}
+	?> 
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); 
