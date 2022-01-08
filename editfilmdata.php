@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "admin";
-$password = "admin";
+$username = "root";
+$password = "";
 $dbname = "film_test";
 
 // Create connection
@@ -15,9 +15,9 @@ if ($connection_2->connect_error) {
 $sql_edit_data = "SELECT tenFilm from film ";
 
 if ($connection_2->query($sql_edit_data)=== TRUE) {
-  echo "Record deleted successfully";
+  echo "Connected to database";
 } else {
-  echo "Error deleting record: " . $connection_2->error;
+  echo "Failed to connect to database: " . $connection_2->error;
 }
 
 $result_data = $connection_2->query($sql_edit_data);
@@ -31,9 +31,10 @@ $connection_2->close();
 <head> 
     <table> 
     <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Tên phim</th>
+    <th>Năm sản xuất</th>
+    <th>Diễn viên</th>
+    <th>Đạo diễn</th>
   </tr>
   <tr>
     <td>Alfreds Futterkiste</td>
