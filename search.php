@@ -5,35 +5,45 @@
 
 <body>
     <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "film_test";
         $conn = new mysqli($servername, $username, $password, $dbname);
-
+       
 
         if ($conn->connect_error) {
-          die("Connection failed:" . $conn->connect_error);
+            die("Connection failed:" . $conn->connect_error);
         }
-
-
-
-        if(isset($_REQUEST['ok'])){ 
-        // add slashes function to avoid sql injection
-            $search = addslashes($_GET['search']);
-
-            if(empty($search)){ 
-                echo "Nhap ten film "; 
-            }
-            else { 
-                    $query_film="SELECT tenFilm,id,avt,namSanXuat from film WHERE tenFilm LIKE '%$search%'"; 
-
-                    $search_film_result=$conn->query($query_film);
-             
-        // Check the return result 
-            $num_search = mysql_num_rows($search_film_result); 
-            
-            
         
+        if( isset($_REQUEST['ok']) ){ 
+            // add slashes function to avoid sql injection
+                $search = addslashes($_GET['search']);
+                
+                if(empty($search)){ 
+                    echo '<script>alert("Ban chua nhap ten phim")</script>';
+                }
+                else { 
+                        $query_film="SELECT tenFilm,id,avt,namSanXuat from film WHERE tenFilm LIKE '%$search%'"; 
+    
+                        $search_film_result=$conn->query($query_film);
+                 
+            // Check the return result 
 
+                
+               $num_search = mysqli_num_rows($search_film_result); 
+                
+                
+                   
+
+              
+                
+
+                
+    
+            }
         }
-
+    
     ?>
 
 
@@ -50,8 +60,11 @@
                         </div>
                         <div class="list-films">
                             <?php
-                            if($search_film_result>0 && $search_film_result!=""){ 
+                            
+                            if($num_search>0){ 
                                 while($row=$search_film_result->fetch_assoc()){
+
+                                    
                                     ?>
                             <div class="movie">
                                 <div class="movie_info">
