@@ -230,6 +230,19 @@ text-align: center;
     width: auto;
     height: auto;
 }
+#display_film .container table{ 
+    text-align: center;
+    border-collapse: collapse;
+    margin: auto;
+    background-color:yellowgreen
+
+} 
+#display_film .container table,th,td{ 
+    border:1px solid black;
+    padding:10px;
+} 
+
+
 
 
 
