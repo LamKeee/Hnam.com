@@ -1,11 +1,11 @@
 <?php 
-include "dbConn.php"
+include "dbConn.php";
 
 // Get id through query 
 
 $id=$_GET['id'];
 
-$del=mysqli_query($db,"DELETE * from film where id=".$id); // delete item through id 
+$del=mysqli_query($db,"DELETE * from film where id=").$id; // delete item through id 
 
 
 
@@ -17,6 +17,8 @@ if($del){
 else { 
     echo "Error deleting record"; 
 }
+
+
 
 
 ?> 

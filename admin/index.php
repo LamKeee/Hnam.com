@@ -11,11 +11,13 @@
 
 </head>
 
+
 <body>
 
 
 
     <div class id="display_film">
+        
         <div class="container">
 
             <table style="width:80%">
@@ -40,16 +42,26 @@
                     <td><?= $data["daoDien"] ?></td>
                     <td><?= $data["namSanXuat"] ?></td>
                     <td><?= $data["luotXem"] ?></td>
-                    <td><a href="update.php?id=<?php $data['id']; ?>">Update</a></td>
-                    <td><a href="delete.php?id=<?php  $data['id']; ?>">Delete</a></td>
+                    <td><a href="update.php?id=<?php echo $data['id']; ?>">Update</a></td>
+                    <td><a href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td>
                     
                 </tr>
                 <?php 
+                
   } 
 ?>
             </table>
+
+            
+            
         </div>
+        
     </div>
+
+    
+    <a href="add.php">
+        <button>Them phim moi</button>
+</a>
 
 
 </body>

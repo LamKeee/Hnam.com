@@ -14,4 +14,6 @@ $data=mysqli_fetch_assoc($qry)
     ?>
 
     <h3> Sửa xóa film data</h3>
+   
+
     
