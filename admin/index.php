@@ -31,7 +31,7 @@
                 </tr>
                 <?php
                 include "dbConn.php"; 
-                $records=mysqli_query($db,"SELECT tenFilm,daoDien,namSanXuat,luotXem from film"); 
+                $records=mysqli_query($db,"SELECT * from film"); 
                 while($data=mysqli_fetch_assoc($records)){
 
                 ?>
