@@ -21,9 +21,9 @@
         <li><a href="/phimhot.php">Phim hot </a></li>
         <li><a href="#">Phim chiếu rạp</a></li>
         <li><a href="#">Phim bộ</a></li>
-        <li><a href="#">Phim bộ</a></li>
         <li><a href="#">Phim Mỹ</a></li>
         <li><a href="#">Phim Englishsub</a></li>
         <li><a href="#">Liên hệ quảng cáo</a></li>
+        <li><a href="/admin/login.php">Đăng nhập</a></li>
     </ul>
 </div>

@@ -1,9 +1,7 @@
 <?php
 // Initialize the session
 	session_start();
-	
 
- 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: /admin/index.php");
@@ -42,6 +40,8 @@ if(empty($username_err) && empty($password_err)){
 
 	if($stmt=$mysqli->prepare($sql_register)){ 
 		//Bind variables to the prepared statement as parameters
+	}
+}
 
 $stmt->bind_param("s",$param_username); 
 
