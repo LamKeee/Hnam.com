@@ -107,19 +107,3 @@ $row   = mysqli_fetch_assoc($result);
     mysqli_close($conn);
     ?>
 
-<?php include ("auth.php");1
-
-
-
-</body>
-<footer>
-  <div id="contact">
-    <p>Author: HNAM Nguyen</p>
-    <p>SDT lien he : 012345678910JQK</p>
-    <p><a href="mailto:hege@example.com">namhoangIT2021@gmail.com</a></p>
-
-
-  </div>
-</footer>
-
-</html>
