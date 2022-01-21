@@ -8,6 +8,14 @@
     <div>
         <h1>Them sua xoa film</h1>
     </div>
+    <div>
+        <?php
+            if(isset($_GET['msg'])){
+                echo("<h4>".$_GET['msg'] ."</h4>");
+            }
+        ?>
+        
+    </div>
 
 </head>
 
@@ -26,11 +34,15 @@
                     <th>Đạo diễn</th>
                     <th>Năm sản xuất</th>
                     <th>Lượt xem</th>
+                    
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 <?php
                 include "dbConn.php"; 
+
+                
+
                 $records=mysqli_query($db,"SELECT * from film"); 
                 while($data=mysqli_fetch_assoc($records)){
 
@@ -42,6 +54,7 @@
                     <td><?= $data["daoDien"] ?></td>
                     <td><?= $data["namSanXuat"] ?></td>
                     <td><?= $data["luotXem"] ?></td>
+                   
                     <td><a href="update.php?id=<?php echo $data['id']; ?>">Update</a></td>
                     <td><a href="delete.php?id=<?php echo $data['id']; ?>">Delete</a></td>
                     

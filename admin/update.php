@@ -3,7 +3,7 @@ include "dbConn.php";
 $id=$_GET['id'];
 $qry=mysqli_query($db,"SELECT * from film where id='$id'");
 
-$data=mysqli_fetch_assoc($qry) // fetch data from database
+$data=mysqli_fetch_assoc($qry); // fetch data from database
 
 if(isset($_POST['update'])){ // When click on Update button
 
@@ -16,7 +16,7 @@ if(isset($_POST['update'])){ // When click on Update button
     $avt=$_POST['avt'];
 
     $edit=mysqli_query($db,"UPDATE film SET tenFilm='$tenFilm', daoDien='$daoDien',quocGia='$quocGia',namSanXuat='$namSanXuat',
-    thoiLuong='$thoiLuong',theLoai='$theLoai',avt='$avt'");
+    thoiLuong='$thoiLuong',theLoai='$theLoai',avt='$avt' where id=$id");
 
     if($edit){
         mysqli_close($db);

@@ -5,18 +5,21 @@ include "dbConn.php";
 
 $id=$_GET['id'];
 
-$delete=mysqli_query($db,"DELETE * from film where id='$id'"); // delete item through id 
+
+
+$delete=mysqli_query($db,"DELETE  from film where id=$id"); // delete item through id 
 
 
 
 if($delete){ 
     mysqli_close($db); // Close database connection
     
-    header("location:/admin/index.php");
+    header("location:/admin/index.php?msg=Delete success");
     exit;
 }
 else { 
-    echo "Error deleting record"; 
+    header("location:/admin/index.php?msg=Delete fail");
+    exit;
 }
 
 

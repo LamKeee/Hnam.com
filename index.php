@@ -61,7 +61,7 @@ $conn->close();
             ?>
                             <div class="movie">
                                 <div class="movie_info">
-                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="<?= $row["avt"] ?>"
+                                    <a href="/xemphim.php?id=<?= $row["id"] ?>"><img src="/uploads/<?= $row["avt"] ?>"
                                             alt="" /></a>
                                     <span class="movieName"><?= $row["tenFilm"] ?></span>
                                     <span class="movie-year"><?= $row["namSanXuat"] ?></span>

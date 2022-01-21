@@ -6,7 +6,8 @@
 </head>
 
 <body>
-    <form action="insert.php" method="post">
+    <form action="insert.php" method="post" enctype="multipart/form-data">
+    
         <table>
             <tr>
                 <th>Tiêu đề phim:</th>
@@ -35,8 +36,9 @@
             </tr>
 
             <tr>
+                
                 <th>Avatar film</th>
-                <td><input type="url" name="avt" value=""></td>
+                <td><input type="file" name="avt"></td>
             </tr>
 
            
